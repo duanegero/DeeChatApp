@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import LoginForm from "../Components/Login Page/login-form";
 
 export default function Login() {
   useEffect(() => {
@@ -7,7 +8,7 @@ export default function Login() {
 
   return (
     <>
-      <h1 className="text-6xl">login</h1>
+      <LoginForm />
     </>
   );
 }
