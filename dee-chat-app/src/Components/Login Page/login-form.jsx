@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; //importing use nav to go from p
 
 //import helper function
 import submitLogin from "./Helpers/submitLogin";
+import { LoginButton } from "../buttons";
 
 //defining a function
 export default function LoginForm() {
@@ -20,27 +21,39 @@ export default function LoginForm() {
   };
 
   return (
-    <div>
+    <div className="border-2 border-lime-400 p-6 rounded-4xl shadow-2xl shadow-lime-400 mx-auto max-w-2xl mt-4">
       <form onSubmit={handleSubmit}>
-        <div>
-          <p>Login</p>
+        <div className="flex flex-col justify-center items-center mt-20 ">
+          <h1 className="font-edu text-7xl text-lime-400 mb-10 font-bold tracking-wider">
+            DeeChatApp
+          </h1>
+          <p className="font-funnel tracking-wider text-xl text-fuchsia-500 mx-auto max-w-96 text-center border-2 border-lime-400 p-6 rounded-4xl shadow-2xl shadow-lime-400">
+            Welcome to DeeChatApp! Connect with friends, chat, and share moments
+            in a simple and fun way.
+          </p>
         </div>
-        <div>
-          <label>Username:</label>
+        <div className="flex flex-col justify-center items-center mt-20">
+          <label className="font-edu font-bold text-lime-400 text-2xl tracking-widest mb-4">
+            Username:
+          </label>
           <input
             value={username}
             type="text"
             placeholder="Type here..."
             onChange={(e) => setUsername(e.target.value)}
+            className="text-xl px-4 py-2 border-2 border-lime-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-500 mb-8 shadow-xl shadow-lime-400 text-white"
           ></input>
-          <label>Password:</label>
+          <label className="font-edu font-bold text-lime-400 text-2xl tracking-widest">
+            Password:
+          </label>
           <input
             value={password}
             type="password"
             placeholder="Type here..."
             onChange={(e) => setPassword(e.target.value)}
+            className="text-xl px-4 py-2 border-2 border-lime-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-fuchsia-500 mb-8 shadow-xl shadow-lime-400 text-white"
           ></input>
-          <button type="submit">Submit</button>
+          <LoginButton type="submit"></LoginButton>
         </div>
       </form>
     </div>
