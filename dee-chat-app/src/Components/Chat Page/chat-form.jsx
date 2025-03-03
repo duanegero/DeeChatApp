@@ -18,22 +18,25 @@ export default function ChatForm({ socket, messages, setMessages }) {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="w-9/12 h-80 overflow-y-scroll border-2 p-3 mt-16 bg-gray-200">
+      <h1 className="text-white mt-10">test</h1>
+      <div className="w-9/12 h-96 overflow-y-scroll border-2 rounded-2xl shadow-2xl shadow-lime-400 p-3 mt-12 text-lime-400 bg-black tracking-wider mb-10">
         {messages.map((msg, index) => (
-          <div key={index} className="p-2 mb-2 border-b-2">
+          <div
+            key={index}
+            className="p-2 mb-2 border-b-2 border-fuchsia-400 break-words whitespace-pre-wrap"
+          >
             {msg}
           </div>
         ))}
       </div>
-      <input
-        className="w-9/12 h-20 border rounded-2xl mt-4"
-        type="text"
+      <textarea
+        className="w-9/12 h-20 border border-lime-400 shadow-2xl shadow-lime-400 rounded-2xl mt-4 p-4 bg-zinc-800 text-fuchsia-400 tracking-wider whitespace-pre-wrap break-words"
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
       />
       <button
         type="button"
-        className="cursor-pointer border-2 mt-3 p-3 rounded-2xl"
+        className="cursor-pointer border-2 mt-3 p-3 rounded-2xl bg-white"
         onClick={handleSendMessage}
       >
         Send

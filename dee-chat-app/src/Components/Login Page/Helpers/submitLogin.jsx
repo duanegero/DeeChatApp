@@ -44,7 +44,7 @@ const submitLogin = async (
     setPassword("");
 
     //navigate to the chat page
-    navigate(`/chat?username=${returnedUsername}`);
+    navigate(`/chat?username=${returnedUsername}&userId=${userId}`);
   } catch (error) {
     //log if any errors
     console.error("Login Error", error.message, error.stack);
