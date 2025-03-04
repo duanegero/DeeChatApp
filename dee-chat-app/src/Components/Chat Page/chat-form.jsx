@@ -18,8 +18,10 @@ export default function ChatForm({ socket, messages, setMessages }) {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-white mt-10">test</h1>
-      <div className="w-9/12 h-96 overflow-y-scroll border-2 rounded-2xl shadow-2xl shadow-lime-400 p-3 mt-12 text-lime-400 bg-black tracking-wider mb-10">
+      <h1 className="font-edu text-7xl text-lime-400 tracking-wider">
+        Matrix Chat
+      </h1>
+      <div className="w-9/12 h-96 overflow-y-scroll border-2 rounded-2xl shadow-2xl shadow-lime-400 p-3 mt-10 text-lime-400 bg-black tracking-wider mb-10">
         {messages.map((msg, index) => (
           <div
             key={index}
@@ -36,7 +38,7 @@ export default function ChatForm({ socket, messages, setMessages }) {
       />
       <button
         type="button"
-        className="cursor-pointer border-2 mt-3 p-3 rounded-2xl bg-white"
+        className="cursor-pointer border-2 my-5 px-8 py-3 rounded-2xl bg-fuchsia-400 font-funnel font-bold tracking-wider text-xl hover:bg-fuchsia-300 hover:text-2xl active:bg-lime-400"
         onClick={handleSendMessage}
       >
         Send

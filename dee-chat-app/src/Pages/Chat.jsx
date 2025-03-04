@@ -59,12 +59,23 @@ export default function Chat() {
 
   return (
     <>
-      <CiSettings
-        onClick={() => openSettings(username, userId, navigate)}
-        className="bg-black text-7xl text-lime-400 cursor-pointer mt-6 ml-6"
-      />
+      <div className="relative h-16">
+        <CiSettings
+          onClick={() => openSettings(username, userId, navigate)}
+          className="absolute top-4 left-4 bg-black text-7xl text-lime-400 cursor-pointer active:text-fuchsia-400 hover:text-white"
+        />
+        <button className="absolute top-4 right-4 bg-white border text-black rounded-3xl px-4 py-2">
+          Logout
+        </button>
+      </div>
 
-      <ChatForm socket={socket} messages={messages} setMessages={setMessages} />
+      <div className="mt-6">
+        <ChatForm
+          socket={socket}
+          messages={messages}
+          setMessages={setMessages}
+        />
+      </div>
     </>
   );
 }
