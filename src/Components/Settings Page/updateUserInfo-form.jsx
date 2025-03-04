@@ -1,21 +1,27 @@
 import React, { useState } from "react"; //importing react and useState
 import { useNavigate } from "react-router-dom"; //importing use nav to go from page to page
 
+//import helper function
 import submitNewUserDetails from "./Helpers/submitNewUserDetails";
 
 export default function UpdateUserInfo() {
+  //varibale to handle username and user ID from URL
   const userId = new URLSearchParams(window.location.search).get("userId");
   const username = new URLSearchParams(window.location.search).get("username");
 
+  //state variables to handle user input
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
 
+  //vaiable to handle navigate
   const navigate = useNavigate();
 
+  //function to handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
+    //call helper function with passed in variables
     submitNewUserDetails(
       event,
       firstname,

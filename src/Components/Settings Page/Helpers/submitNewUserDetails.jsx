@@ -17,6 +17,7 @@ const submitNewUserDetails = async (
   userId,
   username
 ) => {
+  event.preventDefault();
   if (!firstname || !lastname || !email || !age) {
     alert("All details must be filled.");
     return;
