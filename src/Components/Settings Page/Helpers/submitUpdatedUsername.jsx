@@ -2,12 +2,16 @@
 import axios from "axios";
 
 //variable to handle api url
-const apiUrl = "http://localhost:3006";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 //geting the token from local storeage
 const token = localStorage.getItem("token");
 
-const submitNewUsername = async (event, newUsername, navigate, username) => {
+const submitUpdatedUsername = async (
+  event,
+  newUsername,
+  navigate,
+  username
+) => {
   //if no new username passed alert user
   if (!newUsername) {
     alert("Enter a new username.");
@@ -43,4 +47,4 @@ const submitNewUsername = async (event, newUsername, navigate, username) => {
 };
 
 //export function to use in app
-export default submitNewUsername;
+export default submitUpdatedUsername;

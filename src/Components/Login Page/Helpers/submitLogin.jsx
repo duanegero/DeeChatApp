@@ -2,7 +2,7 @@
 import axios from "axios";
 
 //variable to handle api url
-const apiUrl = "http://localhost:3006";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 //defining async function with passed in variables
 const submitLogin = async (

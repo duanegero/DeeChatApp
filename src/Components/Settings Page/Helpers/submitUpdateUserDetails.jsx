@@ -2,12 +2,11 @@
 import axios from "axios";
 
 //variable to handle api url
-const apiUrl = "http://localhost:3006";
-
+const apiUrl = import.meta.env.VITE_API_URL;
 //geting the token from local storeage
 const token = localStorage.getItem("token");
 
-const submitNewUserDetails = async (
+const submitUpdatedUserDetails = async (
   event,
   firstname,
   lastname,
@@ -49,4 +48,4 @@ const submitNewUserDetails = async (
     console.error("Error updating user details.", error.message, error.stack);
   }
 };
-export default submitNewUserDetails;
+export default submitUpdatedUserDetails;

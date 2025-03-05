@@ -2,7 +2,7 @@ import React, { useState } from "react"; //importing react and useState
 import { useNavigate } from "react-router-dom"; //importing use nav to go from page to page
 
 //import helper function
-import submitNewUsername from "./Helpers/submitNewUsername";
+import submitUpdatedUsername from "./Helpers/submitUpdatedUsername";
 
 export default function UpdateUsernameForm() {
   //variable to handle user name from URL
@@ -18,7 +18,7 @@ export default function UpdateUsernameForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     //call helper function with passed in variables
-    submitNewUsername(event, newUsername, navigate, username);
+    submitUpdatedUsername(event, newUsername, navigate, username);
   };
 
   return (
