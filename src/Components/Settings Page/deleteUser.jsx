@@ -30,11 +30,15 @@ export default function DeleteUser() {
   return (
     <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10">
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center w-full">
+        <div className="flex flex-col items-center justify-center w-full">
           <h1 className="text-center">Confirm Delete</h1>
+          <p className="w-1/2">
+            To confirm the deletion of this user, please type 'confirm delete'
+            in the field below. This action cannot be undone, so proceed with
+            caution.
+          </p>
         </div>
-        <div>
-          <p>Please type "confirm delete" to delete user.</p>
+        <div className="flex justify-center items-center w-full gap-x-4">
           <label>confirm delete</label>
           <input
             value={confirmDelete}
@@ -42,6 +46,8 @@ export default function DeleteUser() {
             onChange={(e) => setConfirmDelete(e.target.value)}
             placeholder="confirm delete"
           ></input>
+        </div>
+        <div className="flex justify-center items-center mt-4">
           <button type="submit">Confirm</button>
         </div>
       </form>

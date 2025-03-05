@@ -37,10 +37,16 @@ export default function UpdateUserInfo() {
   return (
     <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10">
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center w-full">
-          <h1 className="text-center">Update User Info</h1>
+        <div className="flex flex-col items-center justify-center w-full">
+          <h1>Update User Info</h1>
+          <p className="w-1/2">
+            You can update your user information here. Please ensure all fields
+            are completed before saving your changes. Keeping your profile
+            details up to date helps us provide a better experience for you.
+          </p>
         </div>
-        <div>
+        <div className="flex flex-col justify-center items-center">
+          {" "}
           <label>First Name</label>
           <input
             value={firstname}
@@ -70,7 +76,7 @@ export default function UpdateUserInfo() {
             onChange={(e) => setAge(e.target.value)}
           ></input>
         </div>
-        <div>
+        <div className="flex justify-center w-full mt-3">
           <button type="submit">Submit</button>
         </div>
       </form>

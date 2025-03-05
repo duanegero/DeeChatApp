@@ -24,11 +24,16 @@ export default function UpdateUsernameForm() {
   return (
     <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10 ">
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-center w-full">
-          <h1 className="text-center">Update Username</h1>
+        <div className="flex flex-col justify-center items-center w-full">
+          <h1 className="text-center mb-2">Update Username</h1>
+          <p className=" w-1/2">
+            You can update your username here. Simply enter your new username in
+            the field below and save your changes. This will update your profile
+            name across the platform.
+          </p>
         </div>
-        <div>
-          <label>New username</label>
+        <div className="flex justify-center items-center w-full gap-x-4">
+          <label>New username:</label>
           <input
             value={newUsername}
             type="text"
@@ -36,7 +41,7 @@ export default function UpdateUsernameForm() {
             onChange={(e) => setNewUsername(e.target.value)}
           ></input>
         </div>
-        <div>
+        <div className="flex justify-center w-full mt-3">
           <button type="submit">submit</button>
         </div>
       </form>
