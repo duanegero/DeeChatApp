@@ -35,10 +35,10 @@ export default function UpdateUserInfo() {
   };
 
   return (
-    <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10 max-w-2xl">
+    <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10">
       <form onSubmit={handleSubmit}>
-        <div>
-          <h1>Update User Info</h1>
+        <div className="flex justify-center w-full">
+          <h1 className="text-center">Update User Info</h1>
         </div>
         <div>
           <label>First Name</label>

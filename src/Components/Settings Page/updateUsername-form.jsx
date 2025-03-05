@@ -24,8 +24,8 @@ export default function UpdateUsernameForm() {
   return (
     <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10 ">
       <form onSubmit={handleSubmit}>
-        <div>
-          <h1>Update Username</h1>
+        <div className="flex justify-center w-full">
+          <h1 className="text-center">Update Username</h1>
         </div>
         <div>
           <label>New username</label>

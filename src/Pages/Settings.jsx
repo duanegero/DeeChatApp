@@ -11,9 +11,12 @@ export default function Settings() {
 
   return (
     <>
-      <UpdateUsernameForm />
-      <UpdateUserInfo />
-      <DeleteUser />
+      <div>
+        <h1 className="text-center mt-5">Settings</h1>
+        <UpdateUsernameForm />
+        <UpdateUserInfo />
+        <DeleteUser />
+      </div>
     </>
   );
 }

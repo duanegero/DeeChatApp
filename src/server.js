@@ -1,17 +1,22 @@
-//importing modules to use in app
+//import necessary modules
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 
-//creating variables to handle imports
+//create an express app instance
 const app = express();
+
+//create an http server using express
 const server = http.createServer(app);
+
+//create a new socket.io server with CORS configuration
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"],
+    origin: "http://localhost:5173", // Allow frontend connection from this origin
+    methods: ["GET", "POST"], // Allowed HTTP methods
   },
 });
+
 const PORT = 3000;
 
 //when a new client connects to the server

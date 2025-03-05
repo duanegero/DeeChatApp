@@ -7,6 +7,7 @@ import { CiSettings } from "react-icons/ci";
 //import component
 import ChatForm from "../Components/Chat Page/chat-form";
 import openSettings from "../Components/Settings Page/Helpers/openSettings";
+import userLogout from "../Components/Chat Page/Helpers/userLogout";
 
 //defining a function
 export default function Chat() {
@@ -64,7 +65,10 @@ export default function Chat() {
           onClick={() => openSettings(username, userId, navigate)}
           className="absolute top-4 left-4 bg-black text-7xl text-lime-400 cursor-pointer active:text-fuchsia-400 hover:text-white"
         />
-        <button className="absolute top-4 right-4 bg-white border text-black rounded-3xl px-4 py-2">
+        <button
+          onClick={() => userLogout(navigate)}
+          className="absolute top-8 right-6 bg-black border shadow-2xl shadow-fuchsia-400 text-fuchsia-400 rounded-3xl px-4 py-2 cursor-pointer font-funnel tracking-wider text-xl hover:border-white hover:text-white hover:bg-zinc-800 active:border-lime-400 active:text-lime-400"
+        >
           Logout
         </button>
       </div>
