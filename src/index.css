@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
 
 @import "tailwindcss";
 
 @theme {
   --font-edu: "Edu AU VIC WA NT Arrows", sans-serif;
   --font-funnel: "Funnel Sans", sans-serif;
+  --font-goldman: "Goldman", sans-serif;
 }

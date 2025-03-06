@@ -22,27 +22,37 @@ export default function UpdateUsernameForm() {
   };
 
   return (
-    <div className=" mt-10 flex flex-col justify-center items-center border m-5 rounded-4xl p-10 ">
+    <div className=" mt-10 flex flex-col justify-center items-center border-4 m-5 rounded-4xl p-10 bg-white border-lime-400">
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col justify-center items-center w-full">
-          <h1 className="text-center mb-2">Update Username</h1>
-          <p className=" w-1/2">
+          <h1 className="text-center mb-2 font-goldman text-3xl tracking-widest">
+            UPDATE USERNAME
+          </h1>
+          <p className="font-goldman w-1/2 mb-6 tracking-wider">
             You can update your username here. Simply enter your new username in
-            the field below and save your changes. This will update your profile
-            name across the platform.
+            the field below and submit your changes. This will update your
+            profile name across the platform.
           </p>
         </div>
-        <div className="flex justify-center items-center w-full gap-x-4">
-          <label>New username:</label>
+        <div className="flex justify-center items-center w-full gap-x-4 mb-6 ">
+          <label className=" text-xl font-goldman tracking-widest mb-2">
+            New username:
+          </label>
           <input
             value={newUsername}
             type="text"
-            placeholder="New Username"
+            placeholder="Type Here..."
             onChange={(e) => setNewUsername(e.target.value)}
+            className="w-64 p-1 text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></input>
         </div>
         <div className="flex justify-center w-full mt-3">
-          <button type="submit">submit</button>
+          <button
+            className="border-2 py-2 px-10 rounded-xl text-xl font-goldman cursor-pointer hover:border-zinc-600 hover:text-zinc-600 hover:bg-zinc-100 tracking-wider"
+            type="submit"
+          >
+            SUBMIT
+          </button>
         </div>
       </form>
     </div>

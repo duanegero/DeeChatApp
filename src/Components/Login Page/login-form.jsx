@@ -29,7 +29,7 @@ export default function LoginForm() {
             <h1 className="font-edu text-7xl text-lime-400 mb-10 font-bold tracking-wider">
               DeeChatApp
             </h1>
-            <p className="font-funnel tracking-wider text-xl text-fuchsia-500 mx-auto max-w-96 text-center border-2 border-lime-400 p-6 rounded-4xl shadow-2xl shadow-lime-400">
+            <p className="font-goldman tracking-wider text-xl text-fuchsia-500 mx-auto max-w-96 text-center border-2 border-lime-400 p-6 rounded-4xl shadow-2xl shadow-lime-400">
               Welcome to DeeChatApp! Connect with friends, chat, and share
               moments in a simple and fun way.
             </p>

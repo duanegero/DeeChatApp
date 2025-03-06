@@ -7,12 +7,20 @@ import DeleteUser from "../Components/Settings Page/deleteUser";
 export default function Settings() {
   useEffect(() => {
     document.title = "Settings";
+
+    document.body.classList.add("bg-black");
+
+    return () => {
+      document.body.classList.remove("bg-black");
+    };
   });
 
   return (
     <>
       <div>
-        <h1 className="text-center mt-5">Settings</h1>
+        <h1 className="text-center mt-5 text-6xl font-goldman tracking-widest text-fuchsia-400">
+          Settings
+        </h1>
         <UpdateUsernameForm />
         <UpdateUserInfo />
         <DeleteUser />
