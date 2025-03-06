@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { useEffect } from "react";
 import SignUpForm from "../Components/SignUp Page/signup-form";
 
 export default function SignUp() {
