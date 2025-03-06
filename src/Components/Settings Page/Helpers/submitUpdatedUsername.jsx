@@ -10,7 +10,8 @@ const submitUpdatedUsername = async (
   event,
   newUsername,
   navigate,
-  username
+  username,
+  setNewUsername
 ) => {
   //if no new username passed alert user
   if (!newUsername) {
@@ -41,8 +42,16 @@ const submitUpdatedUsername = async (
       navigate(`/login`);
     }
   } catch (error) {
-    //catch if any errors log
-    console.error("Error updating username.", error.message, error.stack);
+    if (error.response) {
+      //catch if any errors log
+      console.error("Error updating username.", error.response.data);
+
+      if (error.response.data.error === "USERNAME_ALREADY_EXISTS") {
+        alert("Username name already in use, please try again.");
+        setNewUsername("");
+        return;
+      }
+    }
   }
 };
 

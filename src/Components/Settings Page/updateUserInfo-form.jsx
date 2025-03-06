@@ -12,7 +12,6 @@ export default function UpdateUserInfo() {
   //state variables to handle user input
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
   const [age, setAge] = useState("");
 
   //vaiable to handle navigate
@@ -26,7 +25,6 @@ export default function UpdateUserInfo() {
       event,
       firstname,
       lastname,
-      email,
       age,
       navigate,
       userId,
@@ -67,16 +65,6 @@ export default function UpdateUserInfo() {
             type="text"
             placeholder="Type Here"
             onChange={(e) => setLastname(e.target.value)}
-            className="w-64 p-1 text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
-          ></input>
-          <label className=" text-xl font-goldman tracking-widest mb-2">
-            Email
-          </label>
-          <input
-            value={email}
-            type="email"
-            placeholder="Type Here"
-            onChange={(e) => setEmail(e.target.value)}
             className="w-64 p-1 text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
           ></input>
           <label className=" text-xl font-goldman tracking-widest mb-2">

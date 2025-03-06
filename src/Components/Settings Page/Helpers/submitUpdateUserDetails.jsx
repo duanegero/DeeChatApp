@@ -10,14 +10,13 @@ const submitUpdatedUserDetails = async (
   event,
   firstname,
   lastname,
-  email,
   age,
   navigate,
   userId,
   username
 ) => {
   event.preventDefault();
-  if (!firstname || !lastname || !email || !age) {
+  if (!firstname || !lastname || !age) {
     alert("All details must be filled.");
     return;
   }
@@ -25,7 +24,6 @@ const submitUpdatedUserDetails = async (
   const newUserDeatils = {
     first_name: firstname,
     last_name: lastname,
-    email: email,
     age: age,
   };
 

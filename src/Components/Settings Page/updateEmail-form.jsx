@@ -1,30 +1,30 @@
 import React, { useState } from "react"; //importing react and useState
 import { useNavigate } from "react-router-dom"; //importing use nav to go from page to page
 
-//import helper function
-import submitUpdatedUsername from "./Helpers/submitUpdatedUsername";
+//importing helper functions
+import submitUpdatedEmail from "./Helpers/submitUpdatedEmail";
 
-export default function UpdateUsernameForm() {
-  //variable to handle user name from URL
-  const username = new URLSearchParams(window.location.search).get("username");
+//defining a function
+export default function UpdateEmailForm() {
+  //getting the user ID from the URL
+  const userId = new URLSearchParams(window.location.search).get("userId");
 
-  //state variable to handle new username
-  const [newUsername, setNewUsername] = useState("");
+  //state variables to handle email
+  const [newEmail, setNewEmail] = useState("");
 
-  //vaiable to handle navigate
+  //variable to handle navigation
   const navigate = useNavigate();
 
-  //function to handle submit
+  //function to call on submit
   const handleSubmit = (event) => {
+    //if no user ID throw error
+    if (!userId) {
+      throw new Error("User Id is missing");
+    }
     event.preventDefault();
+
     //call helper function with passed in variables
-    submitUpdatedUsername(
-      event,
-      newUsername,
-      navigate,
-      username,
-      setNewUsername
-    );
+    submitUpdatedEmail(newEmail, userId, navigate, setNewEmail);
   };
 
   return (
@@ -32,23 +32,23 @@ export default function UpdateUsernameForm() {
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col justify-center items-center w-full">
           <h1 className="text-center mb-2 font-goldman text-3xl tracking-widest">
-            UPDATE USERNAME
+            UPDATE EMAIL
           </h1>
           <p className="font-goldman w-1/2 mb-6 tracking-wider">
-            You can update your username here. Simply enter your new username in
-            the field below and submit your changes. This will update your
-            profile name across the platform.
+            You can update your email address here. Simply enter your new email
+            in the field below and submit your changes. Make sure to use a valid
+            email address, as this will be used for account notifications.
           </p>
         </div>
         <div className="flex justify-center items-center w-full gap-x-4 mb-6 ">
           <label className=" text-xl font-goldman tracking-widest mb-2">
-            New Username:
+            New Email:
           </label>
           <input
-            value={newUsername}
-            type="text"
+            value={newEmail}
+            type="email"
             placeholder="Type Here..."
-            onChange={(e) => setNewUsername(e.target.value)}
+            onChange={(e) => setNewEmail(e.target.value)}
             className="w-64 p-1 text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></input>
         </div>
