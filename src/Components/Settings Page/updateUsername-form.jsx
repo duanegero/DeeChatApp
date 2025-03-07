@@ -47,7 +47,7 @@ export default function UpdateUsernameForm() {
           <input
             value={newUsername}
             type="text"
-            placeholder="Type Here..."
+            placeholder="Type here..."
             onChange={(e) => setNewUsername(e.target.value)}
             className="w-64 p-1 text-lg border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           ></input>

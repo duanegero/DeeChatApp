@@ -5,7 +5,13 @@ import axios from "axios";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 //defining an async helper function with passed in variables
-const submitEmailReset = async (email, setUsername, setMessage) => {
+const submitEmailReset = async (
+  email,
+  setUsername,
+  setMessage,
+  setEmail,
+  setLoginPageButton
+) => {
   //if no email passed alert user
   if (!email) {
     alert("Need email address to reset password.");
@@ -18,18 +24,29 @@ const submitEmailReset = async (email, setUsername, setMessage) => {
       `${apiUrl}/users/forgot-password/${email}`
     );
 
+    if (response.data && response.data.error === "EMAIL_NOT_FOUND") {
+      setMessage(`${email} not found`);
+      setEmail("");
+      setUsername("");
+      setLoginPageButton(false);
+      return;
+    }
+
     //if success status setusername and set message
     if (response.status === 200) {
-      setUsername(response.data.user_login.username);
+      setUsername(`USERNAME: ${response.data.user_login.username}`);
       setMessage(
-        `An Email has been sent to ${email} with instructions to reset password.`
+        `An email has been sent to ${email} containing detailed instructions on how to reset your password. Please check your inbox and follow the provided steps to regain access to your account.`
       );
+      setLoginPageButton(true);
     }
   } catch (error) {
     //catch if any error, alert accordingly
     if (error.response) {
       if (error.response.status === 404) {
         alert("Email not found. Please make sure it's correct.");
+        setUsername("");
+        setLoginPageButton(false);
       } else {
         alert("An error occurred.");
       }

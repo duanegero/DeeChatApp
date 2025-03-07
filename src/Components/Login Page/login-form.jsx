@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"; //importing use nav to go from p
 import submitLogin from "./Helpers/submitLogin";
 import { LoginButton } from "../buttons";
 import navigateSignUp from "../SignUp Page/Helpers/navigateSignUp";
+import navigateForgotPassword from "../Forgot Password Page/Helpers/navigatForgotPassword";
 
 //defining a function
 export default function LoginForm() {
@@ -24,6 +25,12 @@ export default function LoginForm() {
   return (
     <>
       <div className="border-2 border-lime-400 p-6 rounded-4xl shadow-2xl shadow-lime-400 mx-auto max-w-2xl mt-4">
+        <button
+          onClick={() => navigateForgotPassword(navigate)}
+          className="border border-black bg-black font-goldman cursor-pointer p-1 rounded-xl tracking-wider text-lime-400 hover:border-lime-400 hover:bg-zinc-800"
+        >
+          forgot password
+        </button>
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col justify-center items-center mt-20 ">
             <h1 className="font-edu text-7xl text-lime-400 mb-10 font-bold tracking-wider">
