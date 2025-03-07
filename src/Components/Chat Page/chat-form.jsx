@@ -1,10 +1,20 @@
 //importing React and useState
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 //defining a function with passed in variables
 export default function ChatForm({ socket, messages, setMessages }) {
   //use state variable to handle new messages
   const [newMessage, setNewMessage] = useState("");
+
+  //ref variable to handle chat
+  const chatWindowRef = useRef(null);
+
+  useEffect(() => {
+    //get the ref to the chat window
+    const chatWindow = chatWindowRef.current;
+    //set the scroll position to the bottom
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+  }, [messages]); //run this effect every messages state changes
 
   //defining a function to handle send button click
   const handleSendMessage = () => {
@@ -21,7 +31,10 @@ export default function ChatForm({ socket, messages, setMessages }) {
       <h1 className="font-edu text-7xl text-lime-400 tracking-wider">
         Matrix Chat
       </h1>
-      <div className="w-9/12 h-96 overflow-y-scroll border-2 rounded-2xl shadow-2xl shadow-lime-400 p-3 mt-10 text-lime-400 bg-black tracking-wider mb-10">
+      <div
+        ref={chatWindowRef}
+        className="w-9/12 h-96 overflow-y-scroll border-2 rounded-2xl shadow-2xl shadow-lime-400 p-3 mt-10 text-lime-400 bg-black tracking-wider mb-10"
+      >
         {messages.map((msg, index) => (
           <div
             key={index}
