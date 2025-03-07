@@ -24,7 +24,9 @@ const submitEmailReset = async (
       `${apiUrl}/users/forgot-password/${email}`
     );
 
+    //checking for certin error passed from api
     if (response.data && response.data.error === "EMAIL_NOT_FOUND") {
+      //setting state variables
       setMessage(`${email} not found`);
       setEmail("");
       setUsername("");
@@ -34,6 +36,7 @@ const submitEmailReset = async (
 
     //if success status setusername and set message
     if (response.status === 200) {
+      //setting state variables
       setUsername(`USERNAME: ${response.data.user_login.username}`);
       setMessage(
         `An email has been sent to ${email} containing detailed instructions on how to reset your password. Please check your inbox and follow the provided steps to regain access to your account.`
@@ -44,6 +47,7 @@ const submitEmailReset = async (
     //catch if any error, alert accordingly
     if (error.response) {
       if (error.response.status === 404) {
+        //setting state variables
         alert("Email not found. Please make sure it's correct.");
         setUsername("");
         setLoginPageButton(false);

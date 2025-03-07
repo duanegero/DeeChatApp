@@ -18,13 +18,7 @@ export default function UpdateUsernameForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     //call helper function with passed in variables
-    submitUpdatedUsername(
-      event,
-      newUsername,
-      navigate,
-      username,
-      setNewUsername
-    );
+    submitUpdatedUsername(newUsername, navigate, username, setNewUsername);
   };
 
   return (

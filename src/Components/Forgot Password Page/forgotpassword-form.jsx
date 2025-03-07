@@ -1,21 +1,26 @@
+//importing React and use's to use in app
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//importing the helper function
 import submitEmailReset from "./Helpers/submitEmailReset";
 
 export default function ForgotPasswordForm() {
+  //state variables to handle user input and output to screen
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [loginPageButton, setLoginPageButton] = useState(false);
   const [message, setMessage] = useState(
     "Please enter your email address to retrieve your associated username. A password reset link will be sent to your email, allowing you to securely reset your password and regain access to your account."
   );
 
-  const [loginPageButton, setLoginPageButton] = useState(false);
-
+  //variable to handle navigation
   const navigate = useNavigate();
 
+  //function to handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
+    //call helper function with passed in variables
     submitEmailReset(
       email,
       setUsername,

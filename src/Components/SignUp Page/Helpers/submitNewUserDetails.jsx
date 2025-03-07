@@ -55,12 +55,14 @@ const submitNewUserDetails = async (
   } catch (error) {
     //catch if any errors, check response and handle if username or email exist
     if (error.response) {
+      //check for error from api, alert user and set state variable
       if (error.response.data.error === "EMAIL_ALREADY_EXISTS") {
         alert("Email already in use please choose another.");
         setEmail("");
         return;
       }
 
+      //check for error from api, alert user and set state variable
       if (error.response.data.error === "USERNAME_ALREADY_EXISTS") {
         alert("Username already in use please choose another.");
         setUsername("");

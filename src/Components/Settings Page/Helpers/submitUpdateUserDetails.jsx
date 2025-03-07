@@ -6,6 +6,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 //geting the token from local storeage
 const token = localStorage.getItem("token");
 
+//defining a async function with passed in variables
 const submitUpdatedUserDetails = async (
   event,
   firstname,
@@ -16,11 +17,14 @@ const submitUpdatedUserDetails = async (
   username
 ) => {
   event.preventDefault();
+
+  //alert if all fields aren't filled
   if (!firstname || !lastname || !age) {
     alert("All details must be filled.");
     return;
   }
 
+  //creating a object with user details
   const newUserDeatils = {
     first_name: firstname,
     last_name: lastname,
@@ -28,6 +32,7 @@ const submitUpdatedUserDetails = async (
   };
 
   try {
+    //variable to handle axios request
     const response = await axios.put(
       `${apiUrl}/users/${userId}`,
       newUserDeatils,
@@ -37,6 +42,7 @@ const submitUpdatedUserDetails = async (
         },
       }
     );
+    //if axios returns alert user and navigate to login
     if (response) {
       alert("User details updated.", response.data);
       navigate(`/chat?username=${username}&userId=${userId}`);
@@ -46,4 +52,5 @@ const submitUpdatedUserDetails = async (
     console.error("Error updating user details.", error.message, error.stack);
   }
 };
+//export function to use else where in app
 export default submitUpdatedUserDetails;

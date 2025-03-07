@@ -6,8 +6,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 //geting the token from local storeage
 const token = localStorage.getItem("token");
 
+//defining a async function with passed in variables
 const submitUpdatedUsername = async (
-  event,
   newUsername,
   navigate,
   username,
@@ -46,6 +46,7 @@ const submitUpdatedUsername = async (
       //catch if any errors log
       console.error("Error updating username.", error.response.data);
 
+      //check if error comes back from api, if so alert user and set state variable
       if (error.response.data.error === "USERNAME_ALREADY_EXISTS") {
         alert("Username name already in use, please try again.");
         setNewUsername("");

@@ -1,9 +1,12 @@
 import React, { useState } from "react"; //importing react and useState
 import { useNavigate } from "react-router-dom"; //importing use nav to go from page to page
 
+//importing helper function
 import submitNewUserDetails from "./Helpers/submitNewUserDetails";
 
+//defining a function
 export default function SignUpForm() {
+  //state variables to handle user inputs
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -12,10 +15,14 @@ export default function SignUpForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  //variable to handle site navigation
   const navigate = useNavigate();
 
+  //function to handle form submit
   const handleSubmit = (event) => {
+    //if both user passwords are the same
     if (password === confirmPassword) {
+      //call helper function with passed in variables
       submitNewUserDetails(
         event,
         firstname,
@@ -33,6 +40,7 @@ export default function SignUpForm() {
         setPassword
       );
     } else {
+      //alert if passwords aren't same
       alert("Password fields aren't the same.");
       return;
     }
